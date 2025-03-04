@@ -43,4 +43,15 @@ This project is a gait classification system that analyzes human walking pattern
 
 ![Gait Classification System Flowchart](images/Gaitgurad_Documentation.jpg)
 
+# Installation & Usage
+* **Installation:**
+    * Clone the repository:
+       ```bash
+      git clone [https://github.com/yourusername/gait-classification.git](https://github.com/yourusername/gait-classification.git)
+      cd gait-classification
+       ```
+    * CNN_GRU
+    * RNN
+    * Autoencoder_classifier
+
 
