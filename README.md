@@ -97,7 +97,7 @@ This project is a gait classification system that analyzes human walking pattern
         * "Gait classification for growing children with Duchenne muscular dystrophy": This research focuses on developing a valid gait classification for children with Duchenne muscular dystrophy.[Link](https://www.mdpi.com/1424-8220/24/17/5571)
         * "Machine Learning Based Abnormal Gait Classification with IMU Sensors Considering Joint Impairments": This study aims to develop an abnormal gait classification algorithm using inertial measurement units and walkway systems.[Link](https://www.mdpi.com/1424-8220/24/17/5571)
   * AI Assistance:
-        * Portions of this project were assisted by OpenAI's ChatGPT. For guidelines on citing AI tools like ChatGPT in APA style, refer to the [APA Style Blog](https://apastyle.apa.org/blog/how-to-cite-chatgpt)
+     * Portions of this project were assisted by OpenAI's ChatGPT. For guidelines on citing AI tools like ChatGPT in APA style, refer to the [APA Style Blog](https://apastyle.apa.org/blog/how-to-cite-chatgpt)
 
 # Future Improvements
   * Improve model accuracy with a larger dataset.
