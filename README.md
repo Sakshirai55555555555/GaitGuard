@@ -82,5 +82,27 @@ This project is a gait classification system that analyzes human walking pattern
   * Users can upload gait videos through a simple web interface
   * The backend processes the video and classifies the gait type.
   * Results are displayed on the web app with visualizations.
+    ![flask_1](images/flask_1.jpg)
+    ![flask_2](images/flask_2.jpg)
+    ![flask_3](images/flask_3.jpg)
+    ![flask_4](images/flask_4.jpg)
+    ![flask_5](images/flask_5.jpg)
+    ![flask_6](images/flask_6.png)
+
+# Contributors & Acknowledgments
+  * Developer: Sakshi Rai
+  * Acknowledgments:
+     * Research References:
+        * "Classification of gait phases based on a machine learning approach using lower limb muscle synergy features": This study investigates the use of muscle synergy features for accurate gait event classification. [Link](https://pmc.ncbi.nlm.nih.gov/articles/PMC10230056/)
+        * "Gait classification for growing children with Duchenne muscular dystrophy": This research focuses on developing a valid gait classification for children with Duchenne muscular dystrophy.[Link](https://www.mdpi.com/1424-8220/24/17/5571)
+        * "Machine Learning Based Abnormal Gait Classification with IMU Sensors Considering Joint Impairments": This study aims to develop an abnormal gait classification algorithm using inertial measurement units and walkway systems.[Link](https://www.mdpi.com/1424-8220/24/17/5571)
+  *AI Assistance:
+        * Portions of this project were assisted by OpenAI's ChatGPT. For guidelines on citing AI tools like ChatGPT in APA style, refer to the [APA Style Blog](https://apastyle.apa.org/blog/how-to-cite-chatgpt)
+
+# Future Improvements
+  * Improve model accuracy with a larger dataset.
+  * Add real-time gait classification.
+  * Implement user authentication for personalized results.
+
 
     
