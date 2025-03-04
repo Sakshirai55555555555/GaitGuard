@@ -90,13 +90,13 @@ This project is a gait classification system that analyzes human walking pattern
     ![flask_6](images/flask_6.png)
 
 # Contributors & Acknowledgments
-  * Developer: Sakshi Rai
+  * Developer: Sakshi Rai , Ayushi Jaiswal , Chetna Chandra ,  Megha Kushwah    
   * Acknowledgments:
      * Research References:
         * "Classification of gait phases based on a machine learning approach using lower limb muscle synergy features": This study investigates the use of muscle synergy features for accurate gait event classification. [Link](https://pmc.ncbi.nlm.nih.gov/articles/PMC10230056/)
         * "Gait classification for growing children with Duchenne muscular dystrophy": This research focuses on developing a valid gait classification for children with Duchenne muscular dystrophy.[Link](https://www.mdpi.com/1424-8220/24/17/5571)
         * "Machine Learning Based Abnormal Gait Classification with IMU Sensors Considering Joint Impairments": This study aims to develop an abnormal gait classification algorithm using inertial measurement units and walkway systems.[Link](https://www.mdpi.com/1424-8220/24/17/5571)
-  *AI Assistance:
+  * AI Assistance:
         * Portions of this project were assisted by OpenAI's ChatGPT. For guidelines on citing AI tools like ChatGPT in APA style, refer to the [APA Style Blog](https://apastyle.apa.org/blog/how-to-cite-chatgpt)
 
 # Future Improvements
