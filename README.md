@@ -20,7 +20,7 @@ This project is a gait classification system that analyzes human walking pattern
 # System Workflow overview          
 * **The gait classification system follows a structured pipeline to analyze human walking patterns and provide meaningful insights. The key steps are:**
     * Video Input
-       * Accepts live or pre-recorded video footage.
+       * Accepts pre-recorded video footage.
     * Pose Estimation (MediaPipe)
        * Extracts 33 joint positions using the MediaPipe framework
     * Feature Extraction
@@ -39,7 +39,7 @@ This project is a gait classification system that analyzes human walking pattern
     * Real-Time Visualization & Feedback
        * Displays classification results dynamically.
     * Medical Recommendations
-       *Provides guidance such as Physiotherapy Suggestions and Posture Correction
+       * Provides guidance such as Physiotherapy Suggestions and Posture Correction
 
 ![Gait Classification System Flowchart](images/Gaitgurad_Documentation.jpg)
 
