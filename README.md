@@ -41,6 +41,6 @@ This project is a gait classification system that analyzes human walking pattern
     * Medical Recommendations
        *Provides guidance such as Physiotherapy Suggestions and Posture Correction
 
-![Gait Classification System Flowchart](path/to/your/image.jpg)
+![Gait Classification System Flowchart](images/Gaitgurad_Documentation.jpg)
 
 
