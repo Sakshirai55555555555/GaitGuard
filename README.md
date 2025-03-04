@@ -47,11 +47,26 @@ This project is a gait classification system that analyzes human walking pattern
 * **Installation:**
     * Clone the repository:
        ```bash
-      git clone [https://github.com/yourusername/gait-classification.git](https://github.com/yourusername/gait-classification.git)
+      git clone https://github.com/Sakshirai55555555555/GaitGuard.git
       cd gait-classification
        ```
-    * CNN_GRU
-    * RNN
-    * Autoencoder_classifier
+    * Install the required dependencies:
+        ```bash
+        pip install -r requirements.txt
+        ```
+* **Usage:**
+    ```bash
+    python app.py
+    ```
+    * Open http://127.0.0.1:5000/ in the browser.
+    * login / Signup
+    * Upload a video file.
+    * View result
 
-
+# Results & Output
+  * Sample output images
+    ![Gait Classification System Flowchart](images/Gaitgurad_Documentation.jpg)
+  * Confusion matrix
+    ![Gait Classification System Flowchart](images/Gaitgurad_Documentation.jpg)
+  * Accuracy/Loss plots
+    ![Gait Classification System Flowchart](images/Gaitgurad_Documentation.jpg)
