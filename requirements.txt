@@ -1,0 +1,11 @@
+flask
+flask-cors
+werkzeug
+tensorflow
+mediapipe
+numpy
+moviepy==1.0.3
+opencv-python
+uuid
+pandas
+
