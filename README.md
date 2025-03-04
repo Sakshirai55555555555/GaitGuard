@@ -65,8 +65,22 @@ This project is a gait classification system that analyzes human walking pattern
 
 # Results & Output
   * Sample output images
-    ![Gait Classification System Flowchart](images/Gaitgurad_Documentation.jpg)
+    ![Gait Classification output](images/deeplearning_output.jpg)
   * Confusion matrix
-    ![Gait Classification System Flowchart](images/Gaitgurad_Documentation.jpg)
+    ![confusion_matrix_1](images/confusion_matrix_1.png)
+    ![confusion_matrix_2](images/confusion_matrix_2.png)
+    ![confusion_matrix_3](images/confusion_matrix_3.png)
+    ![confusion_matrix_4](images/confusion_matrix_4.png)
+    
   * Accuracy/Loss plots
-    ![Gait Classification System Flowchart](images/Gaitgurad_Documentation.jpg)
+    
+    ![accuracy_loss_1](images/accuracy_loss_1.png)
+    ![accuracy_loss_2](images/accuracy_loss_2.png)
+    ![accuracy_loss_3](images/accuracy_loss_3.png)
+
+# Flask Web App
+  * Users can upload gait videos through a simple web interface
+  * The backend processes the video and classifies the gait type.
+  * Results are displayed on the web app with visualizations.
+
+    
