@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Login</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: url("/static/bgimg.jpg") no-repeat center center/cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        display: flex;
+        max-width: 900px;
+        width: 100%;
+        background: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+        flex-direction: row;
+      }
+
+      .image-section {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .image-section img {
+        width: 100%;
+        max-width: 50vw;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      .form-section {
+        flex: 1;
+        padding: 40px;
+      }
+
+      .form-section h2 {
+        text-align: center;
+        color: #6b46c1;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+        position: relative;
+      }
+
+      .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding-right: 35px; /* Space for eye icon */
+      }
+
+      .password-container {
+        position: relative;
+      }
+
+      .toggle-password {
+        position: absolute;
+        right: 10px;
+        top: 70%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        font-size: 18px; /* Adjust size if needed */
+        color: #6b46c1; /* Optional: Change icon color */
+      }
+
+      .form-options {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+      }
+
+      .form-options a {
+        color: #6b46c1;
+        text-decoration: none;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 12px;
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s ease-in-out;
+      }
+
+      .btn:hover {
+        background: linear-gradient(135deg, #2575fc, #6a11cb);
+      }
+
+      .signup {
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      .signup a {
+        color: #6b46c1;
+        text-decoration: none;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+          text-align: center;
+          max-width: 90%;
+          width: 350px;
+          height: auto;
+          padding: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="image-section">
+        <img src="/static/login_img.jpg" alt="Login Image" />
+      </div>
+      <div class="form-section">
+        <h2>Welcome Back!</h2>
+        <p class="text-center">Sign in to access your account</p>
+        <form id="login-form" action="/login" method="POST">
+          <div class="form-group">
+            <label>Username or Email</label>
+            <input
+              type="text"
+              id="username"
+              name="username"        
+              placeholder="Enter your email or username"
+              required
+            />
+          </div>
+
+          <div class="form-group password-container">
+            <label>Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"        
+              placeholder="Enter your password"
+              required
+            />
+            <span class="toggle-password" id="togglePassword">👁️</span>
+          </div>
+
+          <!-- Error Message -->
+          <p
+            id="error-message"
+            style="color: red; font-size: 14px; display: none"
+          >
+            Incorrect password. Please try again.
+          </p>
+
+          <div class="form-options">
+            <label><input type="checkbox" /> Remember me</label>
+            <a href="{{ url_for('forgot_password') }}">Forgot password?</a>
+
+
+          </div>
+
+          <button type="submit" class="btn">Sign In</button>
+        </form>
+
+        <p class="signup">New here? <a href="{{ url_for('signup') }}">Create an account</a></p>
+
+      </div>
+    </div>
+  </body>
+  <script>
+    document
+      .getElementById("togglePassword")
+      .addEventListener("click", function () {
+        let passwordInput = document.getElementById("password");
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          this.textContent = "👁️‍🗨️";
+        } else {
+          passwordInput.type = "password";
+          this.textContent = "👁️";
+        }
+      });
+  </script>
+</html>

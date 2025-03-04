@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mainHome</title>
+  <style>
+    /* Reset some default browser styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+    }
+    /* Navbar styles */
+    .navbar {
+      background-color: #000;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .navbar img {
+      height: 50px; /* Adjust height as needed */
+    }
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+    .navbar ul li {
+      margin-left: 20px;
+    }
+    .navbar ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 12px;
+      transition: background-color 0.3s ease;
+    }
+    .navbar ul li a:hover {
+      background-color: #444;
+      border-radius: 4px;
+    }
+    /* Responsive adjustments for navbar */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+      }
+      .navbar ul {
+        flex-direction: column;
+        margin-top: 10px;
+      }
+      .navbar ul li {
+        margin: 5px 0;
+      }
+    }
+    /* Slideshow Container */
+    .slideshow-container {
+      position: relative;
+      margin-top: 0;
+      position: relative;
+      width: 100%;
+      height: 100vh; /* Reduced height from 100vh to 50vh */
+      /* overflow: hidden; */
+    }
+    .slideshow img {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 3s ease-in-out;
+    }
+    .slideshow img.active {
+      opacity: 1;
+    }
+
+    /* Translucent Content Box over Slideshow */
+    .content-box {
+      position: absolute;
+      top: 30%;
+      left: 7.5%;
+      right: 7.5%;
+      background: rgba(255, 255, 255, 0.61);
+      padding: 35px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: auto;
+      box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.226);
+      text-align: center;
+    }
+    .content-box h1 {
+      font-size: 2.5em;
+      color: #000;
+      margin-bottom: 10px;
+      
+    }
+    .content-box p {
+      font-size: 1.1em;
+      color: #000;
+      margin: 10px 0;
+      text-align: justify;
+    }
+    .content-box div p {
+      font-size: 1.1em;
+      color: #000000;
+      margin: 10px 0;
+      text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Features Section */
+    h1.section-title {
+      text-align: center;
+      padding: 20px 0;
+      font-size: 35px;
+      color: rgb(60, 2, 114);
+    }
+    .features-section {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 5px 19px 25px;
+    }
+    .feature-box {
+      width: 200px;
+      margin: 15px;
+      padding: 30px;
+      background: rgba(241, 234, 234, 0.116);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(88, 88, 88, 0.63);
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+    }
+    .feature-box:hover {
+      transform: translateY(-10px);
+
+    }
+    .feature-box img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .feature-box h5 {
+      margin-top: 15px;
+      color: #202020;
+    
+    }
+    .feature-box p {
+      font-size: 0.95em;
+      color: #2e2e2e;
+      margin-top: 10px;
+      text-align: justify;
+    }
+
+    /* About Us Section Heading */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Container for About Us */
+.About_us {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(88, 88, 88, 0.63);
+  border-radius: 20px;
+}
+
+/* Box that wraps the content */
+.about_us_content-box {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  /* box-shadow: 0 4px 12px rgba(88, 88, 88, 0.63); */
+}
+
+/* Flex container for text and video (GIF) */
+.about_us_content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Reverse order so that on desktop the GIF comes first (left) and text second (right) */
+  flex-direction: row-reverse;
+  gap: 20px;
+}
+
+/* Styling for the paragraph text */
+.about_us_content p {
+  flex: 1;
+  font-size: 1.1em;
+  text-align: left;
+  margin: 0;
+}
+
+/* Container for the GIF */
+.gif {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ensure the GIF scales responsively */
+.gif img {
+  max-width: 80%;
+  height: auto;
+}
+
+/* Responsive adjustments for mobile devices */
+@media (max-width: 768px) {
+  .about_us_content {
+    /* Change to column-reverse to show GIF on top and text below */
+    flex-direction: column-reverse;
+    align-items: center;
+    /* box-shadow: 0 4px 12px rgba(88, 88, 88, 0.63); */
+  }
+  
+  .about_us_content p {
+    text-align: center;
+  }
+  
+  .gif img {
+    /* Reduce GIF size on mobile */
+    max-width: 80%;
+  }
+}
+
+/* Testimonials Section Container */
+.testimonials {
+  text-align: center;
+  padding: 50px 20px;
+  background: #dadada;
+  position: relative;
+  bottom: -60px;
+}
+
+.testimonials h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+/* Container for the slider */
+.testimonials-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px; /* Adjust card width as needed */
+  height: 300px; /* Set a fixed height for the slider */
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Card (Testimonial Box) Styles */
+.testimonial-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Center the card's content */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimonial-box.active {
+  opacity: 1;
+}
+
+/* Profile Image Styles */
+.profile-pic {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+/* Testimonial Text and Stars */
+.testimonial-box h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.stars {
+  color: #FFD700;
+  margin-bottom: 10px;
+}
+
+.testimonial-box p {
+  font-size: 1em;
+  color: #555;
+  margin: 0;
+  padding: 0 10px;
+}
+ 
+/* Footer */
+footer {
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+    }
+    .footer-section {
+      flex: 1;
+      min-width: 250px;
+      max-width: 300px;
+    }
+    .footer-section h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #fff;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+    .social-icons img {
+      width: 25px;
+      margin: 5px;
+      transition: 0.3s;
+    }
+    .social-icons img:hover {
+      transform: scale(1.2);
+    }
+    .footer-bottom {
+      margin-top: 20px;
+      border-top: 1px solid #fff;
+      padding-top: 10px;
+      font-size: 14px;
+    }
+    @media (max-width: 768px) {
+      
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    /* Get Started Button Section */
+.get-started-container {
+  text-align: center;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.get-started-button {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: #7d02ad; /* Purple theme */
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  position: relative;
+  top: 30px;
+  width: 300px;
+}
+
+.get-started-button:hover {
+  background-color: #000000;
+  transform: scale(1.05);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .get-started-button {
+    padding: 12px 25px;
+    font-size: 1em;
+  }
+}
+
+   
+        
+   
+   
+  </style>
+    
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <img src="/static/GaitGuardlogo.png" alt="gaitguard_logo" />
+    <ul>
+      <li><a href="{{ url_for('login') }}">Login/Sign up</a></li>
+    </ul>
+  </nav>
+
+  <!-- Slideshow Container -->
+  <div class="slideshow-container">
+    <div class="slideshow">
+      <img src="/static/slideshow1.jpg" class="slide active" loading="lazy" alt="Slide 1">
+      <img src="/static/slideshow2.jpg" class="slide" loading="lazy" alt="Slide 2">
+      <img src="/static/slideshow3.jpg" class="slide" loading="lazy" alt="Slide 3">
+      <img src="/static/slideshow4.avif" class="slide" loading="lazy" alt="Slide 4">
+      <img src="/static/slideshow5.jpg" class="slide" loading="lazy" alt="Slide 5">
+    </div>
+
+    <!-- Content Box -->
+    <div class="content-box">
+        <h1>Welcome to GaitGuard</h1>
+        <div>
+          <p>Your gateway to advanced gait abnormality detection.</p>
+        </div>
+        <p>
+          GaitGuard is an advanced gait analysis tool that detects walking abnormalities in real-time,
+          offering early diagnosis, personalized care, and actionable insights for improved mobility and health.
+        </p>
+      </div>
+    </div>
+  </div>
+
+    <!-- Features Section -->
+    <h1 class="section-title">GaitGuard Features</h1>
+    <section class="features-section">
+      <div class="feature-box">
+        <img src="/static/Features1.jpg" alt="Real-Time Gait Analysis">
+        <h5>Real-Time Gait Analysis</h5>
+        <p>Detects gait abnormalities in real-time using advanced movement tracking.</p>
+      </div>
+      <div class="feature-box">
+        <img src="/static/Features2.jpg" alt="ML-Based Detection">
+        <h5>Machine Learning-Based Detection</h5>
+        <p>Utilizes CNN-LSTM models for accurate gait classification and analysis.</p>
+      </div>
+      <div class="feature-box">
+        <img src="/static/Features3.jpg" alt="Visual Annotations">
+        <h5>Visual Annotations &amp; Dynamic Ratios</h5>
+        <p>Displays skeleton figures, joint angles, and dynamic tracking visuals.</p>
+      </div>
+      <div class="feature-box">
+        <img src="/static/Features4.jpg" alt="Gait Pattern Classification">
+        <h5>Gait Pattern Classification</h5>
+        <p>Identifies abnormalities like limping, circumduction, and slouch posture.</p>
+      </div>
+      <div class="feature-box">
+        <img src="/static/Features5.avif" alt="Medical Recommendations">
+        <h5>Medical Recommendations</h5>
+        <p>Suggests corrective exercises and medications based on gait analysis.</p>
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+  <div class="About_us">
+    <div class="about_us_content-box">
+      <h1 style="color: rgb(60, 2, 114);">About Us</h1>
+      <div class="about_us_content">
+        <p>
+            GaitGuard is a real-time gait analysis tool that extracts movement features from videos, classifies gait abnormalities, and provides personalized recommendations. Its user-friendly interface supports easy video uploads and clear result visualization.
+        </p>
+        <div class="gif">
+          <img src="/static/three_pane_aligned (1).gif" alt="Gait Animation">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <h1 style="color: rgb(60, 2, 114);">What Our Users Say</h1>
+    <!-- Removed extra <br><br> -->
+    <div class="testimonials-container">
+      <div class="testimonial-box">
+        <img src="/static/slideshow4.avif" alt="User 1" class="profile-pic">
+        <h3>John Doe</h3>
+        <div class="stars">★★★★★</div>
+        <p>"GaitGuard helped me identify my gait issues early! Highly recommended."</p>
+      </div>
+      <div class="testimonial-box">
+        <img src="/static/istockphoto-1437816897-612x612.jpg" alt="User 2" class="profile-pic">
+        <h3>Jane Smith</h3>
+        <div class="stars">★★★★☆</div>
+        <p>"Accurate analysis and easy to use. The ML-based detection is impressive!"</p>
+      </div>
+      <div class="testimonial-box">
+        <img src="/static/download.jpg" alt="User 3" class="profile-pic">
+        <h3>Michael Lee</h3>
+        <div class="stars">★★★★★</div>
+        <p>"The insights provided were really helpful in my recovery journey."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Get Started Section -->
+<div class="get-started-container">
+  <a href="{{ url_for('login') }}" class="get-started-button">Get Started</a>
+
+  </div>
+  
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section about">
+        <h3>About GaitGuard</h3>
+        <p>GaitGuard is an AI-powered system for real-time gait abnormality detection and analysis.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p>Email: support@gaitguard.com</p>
+        <p>Phone: +91 12345 67890</p>
+      </div>
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><img src="/static/images.jpg" alt="Facebook"></a>
+          <a href="#"><img src="/static/images (1).jpg" alt="Instagram"></a>
+          <a href="#"><img src="/static/images.png" alt="LinkedIn"></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 GaitGuard. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+
+ <!-- Slideshow Script -->
+  <script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slideshow img');
+    const totalSlides = slides.length;
+
+    function showSlides() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === slideIndex) {
+          slide.classList.add('active');
+        }
+      });
+      slideIndex = (slideIndex + 1) % totalSlides;
+    }
+
+    // Change slide every 11 seconds
+    setInterval(showSlides, 11000);
+
+    let testimonialIndex = 0;
+  const testimonials = document.querySelectorAll('.testimonial-box');
+
+  function showTestimonial(index) {
+    testimonials.forEach((box, i) => {
+      box.classList.remove('active');
+      if(i === index) {
+        box.classList.add('active');
+      }
+    });
+  }
+
+  function nextTestimonial() {
+    testimonialIndex = (testimonialIndex + 1) % testimonials.length;
+    showTestimonial(testimonialIndex);
+  }
+
+  // Initially show the first testimonial
+  showTestimonial(testimonialIndex);
+
+  // Change testimonial every 5 seconds (5000ms)
+  setInterval(nextTestimonial, 5000);
+  </script>
+</body>
+</html>

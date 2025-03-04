@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: url("/static/bgimg.jpg") no-repeat center center/cover;
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        max-width: 800px;
+      }
+      .image-container {
+        flex: 1;
+        text-align: center;
+      }
+      .image-container img {
+        width: 90%;
+        border-radius: 10px;
+      }
+      .form-container {
+        flex: 1;
+        padding: 20px;
+      }
+      .input-group {
+        position: relative;
+        margin-bottom: 15px;
+      }
+      .input-group input,
+      .input-group select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .toggle-password {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+      }
+      .submit-btn {
+        width: 100%;
+        padding: 12px;
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s ease-in-out;
+      }
+
+      .submit-btn:hover {
+        background: linear-gradient(135deg, #2575fc, #6a11cb);
+      }
+
+      #heading {
+        color: #6a11cb;
+        text-align: center;
+      }
+
+      /* Mobile-specific styles (below 768px) */
+      @media (max-width: 768px) {
+        .container {
+          padding: 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .image-container {
+          order: -1; /* Moves image above form */
+          margin-bottom: 20px;
+          text-align: center;
+        }
+
+        .image-container img {
+          width: 80%;
+          max-width: 250px;
+          border-radius: 10px;
+        }
+
+        .form-container {
+          width: 100%;
+          max-width: 500px;
+        }
+
+        .input-group {
+          position: relative;
+          margin-bottom: 15px;
+        }
+
+        .input-group input,
+        .input-group select {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          box-sizing: border-box;
+        }
+
+        .toggle-password {
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          cursor: pointer;
+          font-size: 18px;
+        }
+
+        .submit-btn {
+          width: 100%;
+          padding: 12px;
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="image-container">
+        <img src="/static/signupimg.jpeg" alt="Signup Illustration" />
+      </div>
+      <div class="form-container">
+        <h2 id="heading">Create an Account</h2>
+        <form id="signup-form" action="/signup" method="POST">
+
+          <div class="input-group">
+            <input type="text" placeholder="Full Name" required name="username"/>
+          </div>
+
+          <div class="input-group">
+            <input type="email" id="email" placeholder="Email" required name="email" />
+          </div>
+
+          <div class="input-group">
+            <input
+              type="password"
+              id="password"
+              placeholder="Password"
+              required name="password"
+            />
+            <span id="togglePassword" class="toggle-password">👁️</span>
+          </div>
+          <div class="input-group">
+            <input
+              type="password"
+              id="confirm-password"
+              placeholder="Confirm Password"
+              required
+            />
+            <span id="toggleConfirmPassword" class="toggle-password">👁️</span>
+          </div>
+          <div class="input-group">
+
+            <select required name="security_question">
+              <option value="" disabled selected>
+                Choose a security question
+              </option>
+              <option value="pet">What was the name of your first pet?</option>
+              <option value="school">
+                What is the name of your first school?
+              </option>
+              <option value="city">In which city were you born?</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <input type="text" placeholder="Answer" required name="security_answer" />
+          </div>
+          <button type="submit" class="submit-btn">Sign Up</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("togglePassword")
+        .addEventListener("click", function () {
+          let passwordInput = document.getElementById("password");
+          if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            this.textContent = "👁️‍🗨️";
+          } else {
+            passwordInput.type = "password";
+            this.textContent = "👁️";
+          }
+        });
+
+      document
+        .getElementById("toggleConfirmPassword")
+        .addEventListener("click", function () {
+          let passwordInput = document.getElementById("confirm-password");
+          if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            this.textContent = "👁️‍🗨️";
+          } else {
+            passwordInput.type = "password";
+            this.textContent = "👁️";
+          }
+        });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("signup-form"); // Replace with your form ID
+        const password = document.getElementById("password");
+        const confirmPassword = document.getElementById("confirm-password");
+
+        form.addEventListener("submit", function (event) {
+          if (password.value !== confirmPassword.value) {
+            event.preventDefault(); // Prevent form submission
+            alert("Passwords do not match! Please try again."); // Show notification
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
